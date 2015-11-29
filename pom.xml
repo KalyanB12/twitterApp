@@ -4,14 +4,13 @@
 	<groupId>com.api.twitter</groupId>
 	<artifactId>twitter</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
-	
-	<dependencies>
 
+	<dependencies>
 		<dependency>
 			<groupId>com.twitter</groupId>
 			<artifactId>hbc-core</artifactId> <!-- or hbc-twitter4j -->
@@ -33,13 +32,6 @@
 			<version>6.1.1</version>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
-	<!-- build> <plugins> <plugin> <artifactId>maven-compiler-plugin</artifactId> 
-		<version>2.5.1</version> <executions> <execution> <id>default-compile</id> 
-		<phase>compile</phase> <goals> <goal>compile</goal> </goals> </execution> 
-		<execution> <id>default-testCompile</id> <phase>test-compile</phase> <goals> 
-		<goal>testCompile</goal> </goals> </execution> </executions> </plugin> </plugins> 
-		</build -->
 </project>
