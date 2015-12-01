@@ -10,14 +10,17 @@ import org.slf4j.LoggerFactory;
 
 import com.api.twitter.model.OauthConsumer;
 
-public class OauthInterceptor extends OauthInterceptorTemplate {
+public class OauthInterceptorWithToken extends OauthInterceptorTemplate {
 
-	Logger LOGGER = LoggerFactory.getLogger(OauthInterceptor.class);
+	Logger LOGGER = LoggerFactory.getLogger(OauthInterceptorWithToken.class);
 
 	private OauthConsumer oauthConsumer;
 
-	public OauthInterceptor(OauthConsumer oauthConsumer) {
+	private String oauthToken;
+
+	public OauthInterceptorWithToken(OauthConsumer oauthConsumer, String oauthToken) {
 		this.oauthConsumer = oauthConsumer;
+		this.oauthToken = oauthToken;
 	}
 
 	@Override
@@ -27,6 +30,13 @@ public class OauthInterceptor extends OauthInterceptorTemplate {
 
 	@Override
 	public String getOauthHeaderValue(HttpPost httpPost) {
-		return httpPost.getFirstHeader(OAuth.HTTP_AUTHORIZATION_HEADER).getValue();
+		String headerValue = httpPost.getFirstHeader(OAuth.HTTP_AUTHORIZATION_HEADER).getValue();
+		headerValue = appendOauthTokenToAuthorizationHeader(headerValue);
+		return headerValue;
 	}
+
+	private String appendOauthTokenToAuthorizationHeader(String oauthHeader) {
+		return oauthHeader + ", oauth_token=\"" + oauthToken + "\"";
+	}
+
 }

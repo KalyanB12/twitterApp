@@ -20,10 +20,11 @@ public interface TwitterConstants {
 	public static String TWEET_URL = "/tweet";
 	public static String VALIDATE_URL = "/validate";
 
-	public static String BASE_TEMPLATE = "template/basetemplate.ftl";
-	public static String LOGIN_TEMPLATE = "template/login.ftl";
-	public static String WELCOME_TEMPLATE = "template/welcome.ftl";
-	public static String TWEETS_TEMPLATE = "template/tweets.ftl";
+	public static String BASE_TEMPLATE = "/template/basetemplate.ftl";
+	public static String LOGIN_TEMPLATE = "/template/login.ftl";
+	public static String WELCOME_TEMPLATE = "/template/welcome.ftl";
+	public static String TWEETS_TEMPLATE = "/template/tweets.ftl";
+	public static String TWEETR_TEMPLATE = "/template/tweetR.ftl";
 
 	public static String FORM_USERNAME = "username";
 	public static String FORM_PASSWORD = "password";
