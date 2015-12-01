@@ -10,13 +10,15 @@ public interface TwitterConstants {
 
 	
 	public static final String ROOT_PATH = "/";
-	public static final String BASE_URL = "https://twitter.com";
+	public static final String BASE_URL = "https://api.twitter.com";
 
 	public static final String REQUEST_TOKEN_URL = "/oauth/request_token";
 	public static final String AUTHENTICATE_URL = "/oauth/authorize";
+	public static final String REQUEST_ACCESS_URL = "/oauth/access_token";
 
 	public static String LOGIN_URL = "/login";
 	public static String TWEET_URL = "/tweet";
+	public static String VALIDATE_URL = "/validate";
 
 	public static String BASE_TEMPLATE = "template/basetemplate.ftl";
 	public static String LOGIN_TEMPLATE = "template/login.ftl";

@@ -6,6 +6,7 @@ import static com.api.twitter.utils.TwitterConstants.LOGIN_TEMPLATE;
 import static com.api.twitter.utils.TwitterConstants.LOGIN_URL;
 import static com.api.twitter.utils.TwitterConstants.TWEETS_TEMPLATE;
 import static com.api.twitter.utils.TwitterConstants.TWEET_URL;
+import static com.api.twitter.utils.TwitterConstants.VALIDATE_URL;
 import static com.api.twitter.utils.TwitterConstants.WELCOME_TEMPLATE;
 
 import java.io.IOException;
@@ -72,6 +73,13 @@ public class Login {
 			helloTemplate.process(map, writer);
 			return writer;
 		});
+		
+		Spark.get(VALIDATE_URL, (Request request, Response response) -> {
+
+			System.out.println(request.params());
+			response.redirect(TWEET_URL, HttpStatus.FOUND.value());
+			return null;
+		});
 
 		Spark.post(TWEET_URL, (Request request, Response response) -> {
 
@@ -93,14 +101,14 @@ public class Login {
 		});
 	}
 
-	private static Object returnLoginScreen(Configuration configuration, StringWriter writer, Map<String, Object> map)
+/*	private static Object returnLoginScreen(Configuration configuration, StringWriter writer, Map<String, Object> map)
 			throws IOException, TemplateException {
 		Template helloTemplate;
 		helloTemplate = configuration.getTemplate(LOGIN_TEMPLATE);
 		helloTemplate.process(map, writer);
 		return writer;
 	}
-
+*/
 	private static ResponseEntity<String> validateAndLoginUser(TwitterOauth twitterOauth, Request request) {
 
 		ResponseEntity<String> response = twitterOauth.getRequestToken();
@@ -117,9 +125,9 @@ public class Login {
 		return response;
 	}
 
-	private static void createSession(Request request, final String userName) {
+/*	private static void createSession(Request request, final String userName) {
 		Session session = request.session(true);
 		session.attribute("name", userName);
 	}
-
+*/
 }
