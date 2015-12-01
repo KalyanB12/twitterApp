@@ -3,7 +3,7 @@
 <title>Welcome!</title>
 </head>
 <body>
-	Hello ${name}!!
+	Hello!! Lets see whats happening...
 	<p>Wanna post!!?</p>
 	<form action="/tweet" method="POST">
 		<dl>
@@ -14,6 +14,9 @@
 		</dl>
 		<input type="submit" value="Tweet!!">
 	</form>
+	
+	${name}
+	
 </body>
 
 </html>
